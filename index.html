@@ -8,9 +8,27 @@
     <title>Library</title>
 </head>
 <body>
-    <div class="header">
-        <h1>Library</h1>
+    <div class="container">
+        <dialog closedby="any">
+            <form>
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required>
+                
+                <label for="author">Author:</label>
+                <input type="text" id="author" name="author" required>
+                
+                <label for="pages">Pages:</label>
+                <input type="number" id="pages" name="pages" required>
+
+                <button type="submit" class="btn-confirm">Confirm</button>
+                <button class="btn-close">Close</button>
+            </form>
+        </dialog>
+        <div class="header">
+            <h1>Library</h1>
+            <button class="btn-add">New Book</button>
+        </div>
+        <div class="library-board"></div>
     </div>
-    <div class="library-board"></div>
 </body>
 </html>
