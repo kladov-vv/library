@@ -4,8 +4,9 @@ const btnCloseDialog = document.querySelector('.btn-close-dialog');
 const btnAddBook = document.querySelector('.btn-add-book');
 const libraryBoard = document.querySelector('.library-board');
 const myLibrary = [
-    {title: 'book 1', author: 'author 1', pages: 100, id: '1'},
-    {title: 'book 2', author: 'author 2', pages: 200, id: '2'}
+    {title: 'Book 1', author: 'author 1', pages: 100},
+    {title: 'Book 2', author: 'author 2', pages: 200},
+    {title: 'Book 3', author: 'author 3', pages: 300}
 ];
 
 // EVENTS
@@ -25,7 +26,6 @@ form.addEventListener('submit', () => {
     addBookToLibrary(formObject.title, formObject.author, formObject.pages, formObject.status)    
     displayLibrary();
     form.reset();
-    dialog.close();
 });
 
 libraryBoard.addEventListener('click', (event) => {    
@@ -73,11 +73,11 @@ function displayLibrary() {
         let status = document.createElement("p");
         let btnRemove = document.createElement("button");
         let btnChangeStatus = document.createElement("button");
-
+        
         title.textContent = book.title;
         author.textContent = `by ${book.author}`;
         pages.textContent = `${book.pages} pages`;
-        status.textContent = (book.status === 'on') ? 'read' : 'not read';
+        status.textContent = (book.status === 'on') ? 'read' : 'not read'
         btnChangeStatus.textContent = 'Change status';
         btnRemove.textContent = 'Remove';
     
@@ -90,3 +90,5 @@ function displayLibrary() {
         libraryBoard.append(div);
     }   
 }
+
+displayLibrary()

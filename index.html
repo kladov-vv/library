@@ -11,20 +11,26 @@
     <div class="container">
         <dialog closedby="any">
             <form method="dialog">
-                <label for="title">Title:</label>
-                <input type="text" id="title" name="title" autocomplete="off" required>
-                
-                <label for="author">Author:</label>
-                <input type="text" id="author" name="author" autocomplete="off" required>
-                
-                <label for="pages">Pages:</label>
-                <input type="number" id="pages" name="pages" autocomplete="off" required>
-
-                <label for="status">Read status:</label>
-                <input type="checkbox" id="status" name="status">
-
-                <button class="form-btn-submit">Confirm</button>
-                <button type="button" class="btn-close-dialog">Close</button>
+                <div class="input-wrapper">
+                    <label for="title">Title:</label>
+                    <input type="text" id="title" name="title" autocomplete="off" required>
+                </div>
+                <div class="input-wrapper">
+                    <label for="author">Author:</label>
+                    <input type="text" id="author" name="author" autocomplete="off" required>
+                </div>
+                <div class="input-wrapper">    
+                    <label for="pages">Pages:</label>
+                    <input type="text" id="pages" name="pages" autocomplete="off" pattern="^(?!0)\d+$" required>
+                </div>
+                <div class="input-wrapper">
+                    <label for="status">Did you read this book?:</label>
+                    <input type="checkbox" id="status" name="status">
+                </div>
+                <button class="btn-submit-form">Confirm</button>
+                <button type="button" class="btn-close-dialog">
+                    <img src="icons/close-icon.svg" alt="close icon">
+                </button>
             </form>
         </dialog>
         <div class="header">
