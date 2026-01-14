@@ -4,9 +4,9 @@ const btnCloseDialog = document.querySelector('.btn-close-dialog');
 const btnAddBook = document.querySelector('.btn-add-book');
 const libraryBoard = document.querySelector('.library-board');
 const myLibrary = [
-    {title: 'Book 1', author: 'author 1', pages: 100},
-    {title: 'Book 2', author: 'author 2', pages: 200},
-    {title: 'Book 3', author: 'author 3', pages: 300}
+    // {title: 'Book 1', author: 'author 1', pages: 100},
+    // {title: 'Book 2', author: 'author 2', pages: 200},
+    // {title: 'Book 3', author: 'author 3', pages: 300}
 ];
 
 // EVENTS
@@ -28,7 +28,7 @@ form.addEventListener('submit', () => {
     form.reset();
 });
 
-libraryBoard.addEventListener('click', (event) => {    
+libraryBoard.addEventListener('click', (event) => {     
     if (event.target.tagName != 'BUTTON') return;
     
     let dataID = event.target.parentNode.dataset.id;
@@ -66,28 +66,26 @@ function displayLibrary() {
     libraryBoard.replaceChildren();
 
     for (let book of myLibrary) {   
-        let div = document.createElement("div");
+        let card = document.createElement("div");
         let title = document.createElement("h3");
         let author = document.createElement("p");
         let pages = document.createElement("p");
-        let status = document.createElement("p");
         let btnRemove = document.createElement("button");
         let btnChangeStatus = document.createElement("button");
-        
+
         title.textContent = book.title;
         author.textContent = `by ${book.author}`;
         pages.textContent = `${book.pages} pages`;
-        status.textContent = (book.status === 'on') ? 'read' : 'not read'
-        btnChangeStatus.textContent = 'Change status';
+        btnChangeStatus.textContent = (book.status === 'on') ? 'read' : 'not read'
         btnRemove.textContent = 'Remove';
-    
-        div.setAttribute('data-id', book.id)
-        div.classList.add("book-card");
-        btnChangeStatus.classList.add("btn-change-status");
-        btnRemove.classList.add("btn-remove-book");
-    
-        div.append(title, author, pages, status, btnChangeStatus, btnRemove);
-        libraryBoard.append(div);
+
+        card.setAttribute('data-id', book.id)
+        card.classList.add('book-card');
+        btnChangeStatus.classList.add('btn-change-status');
+        btnRemove.classList.add('btn-remove-book');
+        
+        card.append(title, author, pages, btnChangeStatus, btnRemove);
+        libraryBoard.append(card);
     }   
 }
 

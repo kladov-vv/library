@@ -16,6 +16,11 @@ input, button, textarea, select {
     font: inherit;
 }
 
+h1, h2, h3, h4, h5, h6, p {
+    overflow-wrap: break-word;
+    word-break: break-all;
+}
+
 p {
     line-height: 1.5;
 }
@@ -171,7 +176,26 @@ h1 {
     padding: 20px;
 }
 
+h3, .btn-change-status {
+    display: inline;
+}
+
 h3 {
     font-size: 1.25rem;
     font-weight: 600;
+    margin-right: 10px;
+}
+
+.btn-remove-book {
+    margin: 0 auto;
+}
+
+.btn-change-status {
+    background: none;
+    outline: #ccc 1px solid;
+    border-radius: 1rem;
+    padding: 2px 8px;
+
+    font-size: 1rem;
+    font-weight: normal;
 }
