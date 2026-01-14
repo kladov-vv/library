@@ -3,11 +3,7 @@ const form = document.querySelector('form');
 const btnCloseDialog = document.querySelector('.btn-close-dialog');
 const btnAddBook = document.querySelector('.btn-add-book');
 const libraryBoard = document.querySelector('.library-board');
-const myLibrary = [
-    // {title: 'Book 1', author: 'author 1', pages: 100},
-    // {title: 'Book 2', author: 'author 2', pages: 200},
-    // {title: 'Book 3', author: 'author 3', pages: 300}
-];
+const myLibrary = [];
 
 // EVENTS
 btnAddBook.addEventListener('click', () => {
@@ -88,5 +84,3 @@ function displayLibrary() {
         libraryBoard.append(card);
     }   
 }
-
-displayLibrary()

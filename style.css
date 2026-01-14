@@ -46,6 +46,8 @@ button:hover {
     flex-direction: column;
 }
 
+
+
 /* FORM */
 dialog {
     margin: auto;
@@ -159,7 +161,7 @@ h1 {
     
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-auto-rows: min-content;
+    grid-auto-rows: max-content;
     gap: 20px;
 
     background-color: var(--bg-color);
@@ -176,10 +178,6 @@ h1 {
     padding: 20px;
 }
 
-h3, .btn-change-status {
-    display: inline;
-}
-
 h3 {
     font-size: 1.25rem;
     font-weight: 600;
@@ -187,10 +185,11 @@ h3 {
 }
 
 .btn-remove-book {
-    margin: 0 auto;
+    margin: auto;
+    margin-top: 10px;
 }
 
-.btn-change-status {
+.btn-change-status {    
     background: none;
     outline: #ccc 1px solid;
     border-radius: 1rem;
