@@ -88,7 +88,7 @@ function displayLibrary() {
         
         card.classList.add('book-card');
         btnChangeStatus.classList.add('btn-change-status');
-        btnRemove.classList.add('btn-remove-book');
+        btnRemove.classList.add('btn-remove-book', 'btn-icon');
         
         btnRemove.append(closeIcon);
         card.append(title, author, pages, btnChangeStatus, btnRemove);

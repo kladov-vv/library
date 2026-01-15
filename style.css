@@ -18,7 +18,6 @@ input, button, textarea, select {
 
 h1, h2, h3, h4, h5, h6, p {
     overflow-wrap: break-word;
-    word-break: break-all;
 }
 
 p {
@@ -40,13 +39,27 @@ button:hover {
     text-decoration: underline;
 }
 
+.btn-icon {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+
+    background: none;
+    border-radius: 1rem;
+    padding: 1px;
+    
+    line-height: 0;
+}
+
+.btn-icon:hover {
+    outline: #ccc 1px solid;
+}
+
 .container {
     height: 100dvh;
     display: flex;
     flex-direction: column;
 }
-
-
 
 /* FORM */
 dialog {
@@ -118,22 +131,6 @@ input[type="checkbox"]:checked::before {
     align-self: center;
 }
 
-.btn-close-dialog {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-
-    background: none;
-    border-radius: 1rem;
-    padding: 1px;
-    
-    line-height: 0;
-}
-
-.btn-close-dialog:hover {
-    outline: #ccc 1px solid;
-}
-
 /* HEADER */
 .header {
     display: flex;
@@ -168,24 +165,21 @@ h1 {
 }
 
 .book-card {
+    position: relative;
+    
     display: flex;
     flex-direction: column;
     gap: 10px;
     
     background-color: var(--content-color);
     border-radius: 8px;
-    padding: 20px;
+    padding: 40px 30px 20px 30px;
 }
 
 h3 {
     font-size: 1.25rem;
     font-weight: 600;
     margin-right: 10px;
-}
-
-.btn-remove-book {
-    margin: auto;
-    margin-top: 10px;
 }
 
 .btn-change-status {    
