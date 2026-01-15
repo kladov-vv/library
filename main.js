@@ -27,11 +27,12 @@ form.addEventListener('submit', () => {
 libraryBoard.addEventListener('click', (event) => {     
     if (event.target.tagName != 'BUTTON') return;
     
-    let dataID = event.target.parentNode.dataset.id;
-    let bookIndex = myLibrary.findIndex((book) => book.id === dataID);
+    let bookCard = event.target.closest('.book-card');
+    let bookID = bookCard.dataset.id;
+    let bookIndex = myLibrary.findIndex((book) => book.id === bookID);
     
     if (event.target.classList.contains('btn-remove-book')) {
-        event.target.parentNode.remove();
+        bookCard.remove();
         myLibrary.splice(bookIndex, 1);
     }
 
