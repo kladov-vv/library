@@ -3,10 +3,7 @@ const form = document.querySelector('form');
 const btnCloseDialog = document.querySelector('.btn-close-dialog');
 const btnAddBook = document.querySelector('.btn-add-book');
 const libraryBoard = document.querySelector('.library-board');
-const myLibrary = [
-    {title: 'book 1', author: 'author 1', pages: 100, id: '1'},
-    {title: 'book 2', author: 'author 2', pages: 200, id: '2'}
-];
+const myLibrary = [];
 
 // EVENTS
 btnAddBook.addEventListener('click', () => {
@@ -87,7 +84,7 @@ function displayLibrary() {
         closeIcon.setAttribute('alt', 'close icon');
         
         card.classList.add('book-card');
-        btnChangeStatus.classList.add('btn-change-status');
+        btnChangeStatus.classList.add('btn-change-status', (book.status === 'on') ? 'read' : 'not-read');
         btnRemove.classList.add('btn-remove-book', 'btn-icon');
         
         btnRemove.append(closeIcon);
