@@ -3,7 +3,10 @@ const form = document.querySelector('form');
 const btnCloseDialog = document.querySelector('.btn-close-dialog');
 const btnAddBook = document.querySelector('.btn-add-book');
 const libraryBoard = document.querySelector('.library-board');
-const myLibrary = [];
+const myLibrary = [
+    {title: 'book 1', author: 'author 1', pages: 100, id: '1'},
+    {title: 'book 2', author: 'author 2', pages: 200, id: '2'}
+];
 
 // EVENTS
 btnAddBook.addEventListener('click', () => {
@@ -24,19 +27,22 @@ form.addEventListener('submit', () => {
     form.reset();
 });
 
-libraryBoard.addEventListener('click', (event) => {     
-    if (event.target.tagName != 'BUTTON') return;
+libraryBoard.addEventListener('click', (event) => {             
+    let target = (event.target.tagName === 'IMG') ? 
+        event.target.parentNode : event.target;
     
-    let bookCard = event.target.closest('.book-card');
+    if (target.tagName != 'BUTTON') return;
+    
+    let bookCard = target.closest('.book-card');
     let bookID = bookCard.dataset.id;
     let bookIndex = myLibrary.findIndex((book) => book.id === bookID);
     
-    if (event.target.classList.contains('btn-remove-book')) {
+    if (target.classList.contains('btn-remove-book')) {
         bookCard.remove();
         myLibrary.splice(bookIndex, 1);
     }
 
-    if (event.target.classList.contains('btn-change-status')) {
+    if (target.classList.contains('btn-change-status')) {
         myLibrary[bookIndex].changeStatus();
         displayLibrary();
     }
@@ -69,19 +75,25 @@ function displayLibrary() {
         let pages = document.createElement("p");
         let btnRemove = document.createElement("button");
         let btnChangeStatus = document.createElement("button");
+        let closeIcon = document.createElement("img");
 
         title.textContent = book.title;
         author.textContent = `by ${book.author}`;
         pages.textContent = `${book.pages} pages`;
         btnChangeStatus.textContent = (book.status === 'on') ? 'read' : 'not read'
-        btnRemove.textContent = 'Remove';
 
         card.setAttribute('data-id', book.id)
+        closeIcon.setAttribute('src', 'icons/close-icon.svg');
+        closeIcon.setAttribute('alt', 'close icon');
+        
         card.classList.add('book-card');
         btnChangeStatus.classList.add('btn-change-status');
         btnRemove.classList.add('btn-remove-book');
         
+        btnRemove.append(closeIcon);
         card.append(title, author, pages, btnChangeStatus, btnRemove);
         libraryBoard.append(card);
     }   
 }
+
+displayLibrary();

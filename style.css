@@ -61,8 +61,7 @@ form {
     gap: 20px;
   
     background-color: var(--content-color);
-    padding: 20px 30px;
-    padding-top: 60px;
+    padding: 60px 30px 20px 30px;
 }
 
 .input-wrapper {
@@ -76,7 +75,6 @@ input {
     
     background-color: var(--bg-color);
     box-shadow: inset 2px 2px 2px #ccc;
-
     padding: 4px 8px;
     border: none;
     border-radius: 8px;
@@ -97,21 +95,23 @@ input[type="checkbox"] {
     position: relative;
     width: 1.5rem;
     height: 1.5rem;
-    border: 1px solid #ccc;
     color: var(--accent-color);
+    
 }
 
 input[type="checkbox"]::before {
-  content: "✔";
-  position: absolute;
-  font-size: 1.4rem;
-  left: 0.1rem;
-  top: -0.3rem;
-  visibility: hidden;
+    position: absolute;
+    left: 0.15rem;
+    top: -0.25rem;
+    
+    content: "✔";
+    visibility: hidden;
+    font-size: 1.4rem;
+    
 }
 
 input[type="checkbox"]:checked::before {
-  visibility: visible;
+    visibility: visible;
 }
 
 .btn-submit-form {
@@ -141,13 +141,12 @@ input[type="checkbox"]:checked::before {
     align-items: center;
 
     background-color: var(--accent-color);
-    padding: 20px;
+    padding: 20px 30px;
 }
 
 h1 {
     font-size: 1.75rem;
     font-weight: 600;
-
     color: #fff;
 }
 
