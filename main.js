@@ -45,14 +45,17 @@ libraryBoard.addEventListener('click', (event) => {
     }
 });
 
-// CONSTRUCTORS
-function Book(title, author, pages, status) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.status = status;
-    this.id = self.crypto.randomUUID();
-    this.changeStatus = function() {
+// CLASS
+class Book {
+    constructor(title, author, pages, status) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.status = status;
+        this.id = self.crypto.randomUUID();
+    }
+
+    changeStatus() {
         this.status = (this.status === 'on') ? 'off' : 'on';
     }
 }
